@@ -184,7 +184,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // Clear history button
-document.querySelector("#clear-history").addEventListener("click", () => {
-    localStorage.removeItem("lastCity");
-    weatherResult.innerHTML = `<p class="placeholder">Search a city or use your location to get started.</p>`;
-});
+// document.querySelector("#clear-history").addEventListener("click", () => {
+//     localStorage.removeItem("lastCity");
+//     weatherResult.innerHTML = `<p class="placeholder">Search a city or use your location to get started.</p>`;
+// });

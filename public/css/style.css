@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
@@ -20,6 +24,7 @@ body {
     max-width: 500px;
     width: 100%;
     background: #1e1e1e;
+    margin: 0 auto;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -44,11 +49,17 @@ header h1 {
 }
 
 .controls input {
+    background: #2a2a2a;
+    color: #f5f5f5;
     flex: 1;
     padding: 0.7rem;
     border: none;
     border-radius: 6px;
     outline: none;
+}
+
+.controls input::placeholder {
+    color: #bbb;
 }
 
 .controls button {
@@ -58,15 +69,100 @@ header h1 {
     padding: 0.7rem 1rem;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .controls button:hover {
-    background: #870f5a;
+    background: #ffcc00;
+    color: #0f0f0f;
+    transform: translateY(-2px);
+}
+
+.error {
+    color: #ff4d4d;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+/* Container autocomplete */
+.autocomplete {
+    position: relative; /* biar anak (suggestion) bisa absolute */
+    width: 100%;
+}
+
+.autocomplete-list {
+    position: absolute;
+    top: 100%; /* muncul tepat di bawah input */
+    left: 0;
+    right: 0;
+    background: #2a2a2a;
+    border-radius: 6px;
+    margin-top: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    max-height: 200px;     /* <= ini batas tinggi */
+    overflow-y: auto;      /* scroll hanya di dalam dropdown */
+}
+
+/* Item suggestion */
+.autocomplete-item {
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #f5f5f5;
+}
+
+.autocomplete-item:hover {
+    background: #a7156e;
+    color: #fff;
+}
+
+/* Kotak suggestion */
+#suggestions {
+    position: absolute;
+    top: 100%; /* tepat di bawah input */
+    left: 0;
+    right: 0;
+    background: #2a2a2a;
+    border-radius: 6px;
+    margin-top: 4px;
+    z-index: 1000;
+
+  max-height: 180px;   /* batasi tinggi */
+  overflow-y: auto;    /* biar scroll hanya di dalam box */
+}
+
+/* Item dalam suggestion */
+.suggestion-item {
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    color: #f5f5f5;
+}
+
+.suggestion-item:hover {
+    background: #a7156e;
+    color: #fff;
+}
+
+/* Pesan kosong */
+.suggestion-empty {
+    padding: 0.7rem 1rem;
+    color: #aaa;
+}
+
+
+#weather-result p {
+    margin-top: 1rem;
 }
 
 #weather-result {
     text-align: center;
+}
+
+.weather-card img {
+    width: 100px;
+    height: 100px;
+    margin: 1rem 0;
 }
 
 .weather-card {
@@ -75,10 +171,32 @@ header h1 {
     border-radius: 12px;
     margin-top: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: fadeInUp 0.5s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.weather-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+.weather-card .description {
+    text-transform: capitalize;
+    font-style: italic;
+    color: #ccc;
+}
+
+.weather-card .temp {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffcc00;
+    margin: 0.5rem 0;
 }
 
 .weather-card h2 {
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 .weather-details {
@@ -91,6 +209,8 @@ header h1 {
     color: #888;
     font-style: italic;
 }
+
+/* Footer */
 
 /* Responsive Design */
 @media (max-width: 600px) {
@@ -116,5 +236,17 @@ header h1 {
 
     .weather-details {
         font-size: 0.85rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+    opacity: 0;
+    transform: translateY(15px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
     }
 }

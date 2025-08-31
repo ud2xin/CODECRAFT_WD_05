@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files (API keys, configs, dll)
+.env
+*.env
+
+# Backup / log files
+*.log
+*.bak

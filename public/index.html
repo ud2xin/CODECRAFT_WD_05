@@ -13,15 +13,17 @@
     <!-- Main App -->
     <div class="app">
         <header>
-            <h1 class="app-title" style="font-weight: bold;" >🌤️ Weather App 🌤️</h1>
+            <h1 class="app-title fw-bold"><i class="bi bi-brightness-high-fill text-warning"></i><a href="index.html"> Weather App</a></h1>
             <p class="app-subtitle">Get current weather information for any city.</p>
         </header>
 
-        <section class="controls">
-            <form id="search-form">
+        <section class="controls" ">
+            <form id="search-form" style="position: relative;">
                 <input type="text" id="city-input" placeholder="Enter city name..." required />
+                <div id="suggestions"></div>
                 <button type="submit">Search</button>
             </form>
+            
             <button id="geo-btn">📍 Use My Location</button>
         </section>
 
@@ -31,8 +33,22 @@
         </section>
     </div>
 
+    <!-- Footer
+    <footer class="footer-custom text-center py-4">
+        <div class="container">
+            <p class="mb-1 fw-semibold">&copy; 2025 Muhammad Haikal Syamsuddin</p>
+            <small class="text-muted">All rights reserved.</small>
+            <div class="mt-2">
+                <a href="mailto:muhammadhaikalsyamsuddin6@gmail.com" class="footer-link me-3"><i class="bi bi-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/muhammadhaikals" class="footer-link me-3" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/ud2xin" class="footer-link" target="_blank"><i class="bi bi-github"></i></a>
+            </div>
+        </div>
+    </footer> -->
+
     <!-- Script -->
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </body>
 </html>
